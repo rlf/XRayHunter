@@ -1,0 +1,26 @@
+language: java
+branches:
+  only:
+    # Only build (and deploy) pushes tagged with a version number
+    - /^v1.*$/
+env:
+  global:
+    secure: dGzZ9hl0ezUCYs72+Z4LUgtny0qsUn3HibpBKo4hriRPMY8EQqaJfi1ZDQTKr3ctjJMtQtcgnlC0BujEV+1W2tObjSJsCAdEbzKYZijwRXSK5jT1sua3EQScKYelpv0z4fd9LIYJJ95xwXMNMmAFSjdu3fRDkxtGgIIKbka8YiE=
+notifications:
+  email: false
+before_install:
+  # Change the maven-version to be the tag (for the API deploy)
+  # Skip the 'v'
+  - mvn versions:set -DnewVersion=${TRAVIS_TAG:1}
+deploy:
+  provider: releases
+  api-key: ${GITHUB_TOKEN}
+  file:
+  - target/XRayHunter.jar
+  skip_cleanup: true
+  on:
+    tags: true
+    all_branches: true
+cache:
+  directories:
+  - $HOME/.m2
