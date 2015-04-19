@@ -137,18 +137,6 @@
             <version>${coreprotect.version}</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>net.milkbowl.vault</groupId>
-            <artifactId>VaultAPI</artifactId>
-            <version>1.5</version>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>net.milkbowl.vault</groupId>
-            <artifactId>Vault</artifactId>
-            <version>1.5.1</version>
-            <optional>true</optional>
-        </dependency>
         <!-- TESTING -->
         <dependency>
             <groupId>junit</groupId>

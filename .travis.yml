@@ -11,6 +11,7 @@ notifications:
 before_install:
   # Change the maven-version to be the tag (for the API deploy)
   # Skip the 'v'
+  - mvn -f coreprotect.xml install
   - mvn versions:set -DnewVersion=${TRAVIS_TAG:1}
 deploy:
   provider: releases
