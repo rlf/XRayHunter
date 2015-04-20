@@ -30,7 +30,7 @@ public class HuntSession {
     /**
      * Last invoked /xhunt lookup
      */
-    private List<PlayerStats> lookupCache;
+    private List<PlayerStats> lookupCache = Collections.emptyList();
     private PlayerStats currentStat;
 
     private Map<String, List<CoreProtectAPI.ParseResult>> userData;
