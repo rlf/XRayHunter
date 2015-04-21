@@ -20,6 +20,9 @@ import java.util.logging.Logger;
  * Proxy/Handler to CoreProtect, supplying the lookups the API currently doesn't support
  */
 public class CoreProtectHandler {
+    public static final int ACTION_BREAK = 0;
+    public static final int ACTION_PLACE = 1;
+
     private static final Logger log = Logger.getLogger(CoreProtectHandler.class.getName());
     private static final List<CoreProtectAdaptor> adaptors = Arrays.<CoreProtectAdaptor>asList(
             new CoreProtectAdaptor_2_10_0(), new CoreProtectAdaptor_2_0_8()
@@ -29,9 +32,10 @@ public class CoreProtectHandler {
         Bukkit.getScheduler().runTaskAsynchronously(plugin, new Runnable() {
             @Override
             public void run() {
-                try (Connection connection = Database.getConnection(false);Statement statement = connection.createStatement()) {
+                try (Connection connection = Database.getConnection(true);Statement statement = connection.createStatement()) {
                     List<Integer> action_list = new ArrayList();
                     action_list.add(0); // ActionId = 0 - Break
+                    action_list.add(1); // ActionId = 1 - Place
                     Location location = (sender instanceof Player) ? ((Player) sender).getLocation() : null;
                     int now = (int) (System.currentTimeMillis() / 1000L);
                     CoreProtectAdaptor adaptor = getAdaptor();
@@ -54,25 +58,5 @@ public class CoreProtectHandler {
             }
         }
         return null;
-    }
-
-    private static List<String> convertMats(List<Material> matList) {
-        List<String> result = new ArrayList<>(matList != null ? matList.size() : 0);
-        if (matList != null) {
-            for (Material i : matList) {
-                result.add("" + i.getId());
-            }
-        }
-        return result;
-    }
-
-    private static List<String> convert(List<Integer> integerList) {
-        List<String> result = new ArrayList<>(integerList != null ? integerList.size() : 0);
-        if (integerList != null) {
-            for (Integer i : integerList) {
-                result.add("" + i);
-            }
-        }
-        return result;
     }
 }

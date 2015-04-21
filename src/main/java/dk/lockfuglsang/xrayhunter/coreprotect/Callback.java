@@ -6,7 +6,7 @@ import java.util.List;
  * Callback for asynchronously calls to CoreProtect backend.
  */
 public abstract class Callback implements Runnable {
-    private List<String[]> data;
+    private volatile List<String[]> data;
 
     public List<String[]> getData() {
         return data;
