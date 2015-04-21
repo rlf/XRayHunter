@@ -7,7 +7,9 @@ import net.coreprotect.CoreProtectAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.mcstats.MetricsLite;
 
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -17,6 +19,7 @@ public class XRayHunter extends JavaPlugin {
     private static final Logger log = Logger.getLogger(XRayHunter.class.getName());
 
     private CoreProtectAPI api;
+
     public void onEnable() {
         api = null;
         CoreProtectAPI coreProtectAPI = getCoreProtect();
@@ -24,6 +27,12 @@ public class XRayHunter extends JavaPlugin {
             log.info("No valid CoreProtect plugin was found! - Disabling");
             getPluginLoader().disablePlugin(this);
             return;
+        }
+        try {
+            MetricsLite metrics = new MetricsLite(this);
+            metrics.start();
+        } catch (Exception e) {
+            log.log(Level.WARNING, "Failed to submit metrics data", e);
         }
         this.api = coreProtectAPI;
         getCommand("xhunt").setExecutor(new MainCommand(this));
