@@ -42,6 +42,24 @@
                 <travis.buildNumber>${env.TRAVIS_BUILD_NUMBER}</travis.buildNumber>
             </properties>
         </profile>
+        <profile>
+            <id>cp2_8_0</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <coreprotect.version>2.8.0</coreprotect.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>cp2_9_0</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <coreprotect.version>2.9.0</coreprotect.version>
+            </properties>
+        </profile>
     </profiles>
     <build>
         <finalName>${finalName}</finalName>

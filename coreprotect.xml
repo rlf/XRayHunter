@@ -9,7 +9,6 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <finalName>CoreProtect</finalName>
-        <coreprotect.url>http://dev.bukkit.org/media/files/820/756/CoreProtect_2.10.0.jar</coreprotect.url>
     </properties>
 
     <build>
@@ -29,8 +28,16 @@
                         <configuration>
                             <target>
                                 <!-- download file -->
-                                <get src="${coreprotect.url}"
-                                     dest="${project.build.directory}/CoreProtect.jar"
+                                <get src="http://dev.bukkit.org/media/files/715/374/CoreProtect_2.0.8.jar"
+                                     dest="${project.build.directory}"
+                                     verbose="true"
+                                     usetimestamp="true"/>
+                                <get src="http://dev.bukkit.org/media/files/775/489/CoreProtect_2.0.9.jar"
+                                     dest="${project.build.directory}"
+                                     verbose="true"
+                                     usetimestamp="true"/>
+                                <get src="http://dev.bukkit.org/media/files/820/756/CoreProtect_2.10.0.jar"
+                                     dest="${project.build.directory}"
                                      verbose="true"
                                      usetimestamp="true"/>
                             </target>
@@ -44,6 +51,7 @@
                 <version>2.4</version>
                 <executions>
                     <execution>
+                        <id>2.0.8</id>
                         <phase>install</phase>
                         <goals>
                             <goal>install-file</goal>
@@ -51,9 +59,37 @@
                         <configuration>
                             <groupId>${project.groupId}</groupId>
                             <artifactId>${project.artifactId}</artifactId>
-                            <version>${project.version}</version>
+                            <version>2.8.0</version>
                             <packaging>jar</packaging>
-                            <file>${project.build.directory}/CoreProtect.jar</file>
+                            <file>${project.build.directory}/CoreProtect_2.0.8.jar</file>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>2.0.9</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                        <configuration>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>${project.artifactId}</artifactId>
+                            <version>2.9.0</version>
+                            <packaging>jar</packaging>
+                            <file>${project.build.directory}/CoreProtect_2.0.9.jar</file>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>2.10.0</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                        <configuration>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>${project.artifactId}</artifactId>
+                            <version>2.10.0</version>
+                            <packaging>jar</packaging>
+                            <file>${project.build.directory}/CoreProtect_2.10.0.jar</file>
                         </configuration>
                     </execution>
                 </executions>
