@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>dk.lockfuglsang</groupId>
     <artifactId>XRayHunter</artifactId>
-    <version>1.0</version>
+    <version>1.0.3</version>
     <name>CoreProtect XRay Hunter</name>
 
     <properties>
@@ -11,7 +11,7 @@
         <finalName>${project.artifactId}</finalName>
         <GITHUB_TOKEN>invalid</GITHUB_TOKEN>
         <travis.buildNumber>dev</travis.buildNumber>
-        <coreprotect.version>2.10.0</coreprotect.version>
+        <coreprotect.version>2.12.0</coreprotect.version>
     </properties>
 
     <scm>
@@ -22,8 +22,8 @@
 
     <repositories>
         <repository>
-            <id>Bukkit API</id>
-            <url>http://repo.mvdw-software.be/content/groups/public/</url>
+            <id>spigotmc.org</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/public</url>
         </repository>
         <repository>
             <id>Plugin Metrics</id>
@@ -139,7 +139,7 @@
         <dependency> <!-- Bukkit implementation -->
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>1.8-R0.1-SNAPSHOT</version>
+            <version>1.8.8-R0.1-SNAPSHOT</version>
             <optional>true</optional>
             <scope>compile</scope>
         </dependency>

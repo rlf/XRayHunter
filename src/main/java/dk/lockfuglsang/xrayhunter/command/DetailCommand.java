@@ -79,7 +79,7 @@ public class DetailCommand extends AbstractCommand {
             sb.append(tr("§7#{5,number} {0}: §9found §e{1} {2}{3}§9 ores at {4}",
                     TimeUtil.millisAsString(tlast - vein.getTime()),
                     vein.getSize(),
-                    PlayerStatsComparator.MAT_COLORS.get(vein.getType()),
+                    PlayerStatsComparator.getColor(vein.getType()),
                     vein.getType().name().substring(0,3),
                     LocationUtil.asShortString(vein.getLocation()),
                     index++

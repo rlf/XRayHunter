@@ -117,14 +117,14 @@ class LookupCommand extends AbstractCommand {
             StringBuilder sb = new StringBuilder();
             sb.append("Listing");
             for (Material mat : PlayerStatsComparator.MATS) {
-                sb.append(PlayerStatsComparator.MAT_COLORS.get(mat) + "§l " + mat.name().substring(0, 3));
+                sb.append(PlayerStatsComparator.getColor(mat) + "§l " + mat.name().substring(0, 3));
             }
             sb.append("\n");
             int place = 1;
             for (PlayerStats stat : top10.subList(0, Math.min(top10.size(), 10))) {
                 sb.append(MessageFormat.format("§7#{0}", place));
                 for (Material mat : PlayerStatsComparator.MATS) {
-                    sb.append(PlayerStatsComparator.MAT_COLORS.get(mat) +
+                    sb.append(PlayerStatsComparator.getColor(mat) +
                             MessageFormat.format(" §l{0,number,##}§7({1,number,##}%)", stat.getCount(mat), 100 * stat.getRatio(mat)));
                 }
                 sb.append(" §9" + stat.getPlayer() + "\n");

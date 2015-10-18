@@ -25,7 +25,7 @@ public class CoreProtectHandler {
 
     private static final Logger log = Logger.getLogger(CoreProtectHandler.class.getName());
     private static final List<CoreProtectAdaptor> adaptors = Arrays.<CoreProtectAdaptor>asList(
-            new CoreProtectAdaptor_2_10_0(), new CoreProtectAdaptor_2_0_8()
+            new CoreProtectAdaptor_2_12_0(), new CoreProtectAdaptor_2_10_0(), new CoreProtectAdaptor_2_0_8()
     );
 
     public static void performLookup(final Plugin plugin, final CommandSender sender, final int stime, final List<Material> restrictBlocks, final List<Integer> excludeBlocks, final Callback callback) {
@@ -42,8 +42,10 @@ public class CoreProtectHandler {
                     if (adaptor != null) {
                         List<String[]> data = adaptor.performLookup(statement, restrictBlocks, action_list, location, now - stime, location != null);
                         callback.setData(data);
+                    } else {
+                        log.log(Level.WARNING, "Unable to find suitable CoreProtect adaptor!");
                     }
-                    Bukkit.getScheduler().runTask(plugin, callback);
+                    Bukkit.getScheduler().runTaskAsynchronously(plugin, callback);
                 } catch (Exception e) {
                     log.log(Level.WARNING, "Unable to lookup data", e);
                 }

@@ -40,6 +40,10 @@
                                      dest="${project.build.directory}"
                                      verbose="true"
                                      usetimestamp="true"/>
+                                <get src="http://dev.bukkit.org/media/files/886/944/CoreProtect_2.12.0.jar"
+                                     dest="${project.build.directory}"
+                                     verbose="true"
+                                     usetimestamp="true"/>
                             </target>
                         </configuration>
                     </execution>
@@ -90,6 +94,20 @@
                             <version>2.10.0</version>
                             <packaging>jar</packaging>
                             <file>${project.build.directory}/CoreProtect_2.10.0.jar</file>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>2.12.0</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                        <configuration>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>${project.artifactId}</artifactId>
+                            <version>2.12.0</version>
+                            <packaging>jar</packaging>
+                            <file>${project.build.directory}/CoreProtect_2.12.0.jar</file>
                         </configuration>
                     </execution>
                 </executions>
