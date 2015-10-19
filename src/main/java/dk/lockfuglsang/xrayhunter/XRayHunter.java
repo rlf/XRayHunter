@@ -7,7 +7,7 @@ import net.coreprotect.CoreProtectAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.mcstats.MetricsLite;
+import org.mcstats.Metrics;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,7 +29,7 @@ public class XRayHunter extends JavaPlugin {
             return;
         }
         try {
-            MetricsLite metrics = new MetricsLite(this);
+            org.mcstats.Metrics metrics = new Metrics(this);
             metrics.start();
         } catch (Exception e) {
             log.log(Level.WARNING, "Failed to submit metrics data", e);

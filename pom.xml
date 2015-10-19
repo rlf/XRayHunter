@@ -150,7 +150,7 @@
         </dependency>
         <dependency>
             <groupId>org.mcstats.bukkit</groupId>
-            <artifactId>metrics-lite</artifactId>
+            <artifactId>metrics</artifactId>
             <version>R8-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
