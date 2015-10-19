@@ -29,6 +29,11 @@
             <id>Plugin Metrics</id>
             <url>http://repo.mcstats.org/content/repositories/public</url>
         </repository>
+        <repository>
+            <id>uSkyBlock-mvn-repo</id>
+            <url>https://raw.github.com/rlf/uSkyBlock/mvn-repo/</url>
+            <!-- Fallback repo for metrics -->
+        </repository>
     </repositories>
     <profiles>
         <profile>
