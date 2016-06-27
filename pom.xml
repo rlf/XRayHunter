@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>dk.lockfuglsang</groupId>
     <artifactId>XRayHunter</artifactId>
-    <version>1.0.3</version>
+    <version>1.1.0</version>
     <name>CoreProtect XRay Hunter</name>
 
     <properties>
@@ -12,6 +12,7 @@
         <GITHUB_TOKEN>invalid</GITHUB_TOKEN>
         <travis.buildNumber>dev</travis.buildNumber>
         <coreprotect.version>2.12.0</coreprotect.version>
+        <bukkit-utils.version>1.6</bukkit-utils.version>
     </properties>
 
     <scm>
@@ -103,16 +104,23 @@
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>2.3</version>
                 <configuration>
+                    <minimizeJar>true</minimizeJar>
                     <artifactSet>
                         <includes>
                             <include>org.mcstats.*:*</include>
                             <include>com.googlecode.gettext-commons:*</include>
+                            <include>dk.lockfuglsang.minecraft:*</include>
                         </includes>
                     </artifactSet>
                     <relocations>
                         <relocation>
                             <pattern>org.mcstats</pattern>
                             <shadedPattern>dk.lockfuglsang.xrayhunter.metrics</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>dk.lockfuglsang.minecraft</pattern>
+                            <shadedPattern>dk.lockfuglsang.xrayhunter.minecraft</shadedPattern>
+                            <!--shadedPattern>dk.lockfuglsang.minecraft</shadedPattern-->
                         </relocation>
                     </relocations>
                 </configuration>
@@ -144,7 +152,7 @@
         <dependency> <!-- Bukkit implementation -->
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>1.8.8-R0.1-SNAPSHOT</version>
+            <version>1.10-R0.1-SNAPSHOT</version>
             <optional>true</optional>
             <scope>compile</scope>
         </dependency>
@@ -159,6 +167,11 @@
             <artifactId>coreprotect</artifactId>
             <version>${coreprotect.version}</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>dk.lockfuglsang.minecraft</groupId>
+            <artifactId>bukkit-utils</artifactId>
+            <version>${bukkit-utils.version}</version>
         </dependency>
         <!-- TESTING -->
         <dependency>

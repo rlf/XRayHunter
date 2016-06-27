@@ -1,13 +1,27 @@
 package dk.lockfuglsang.xrayhunter.command;
 
+import dk.lockfuglsang.minecraft.command.AbstractCommandExecutor;
 import dk.lockfuglsang.xrayhunter.XRayHunter;
-import dk.lockfuglsang.xrayhunter.command.common.AbstractCommandExecutor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 
 public class MainCommand extends AbstractCommandExecutor {
+    private final XRayHunter plugin;
+
     public MainCommand(XRayHunter plugin) {
         super("xhunt", "xhunt.use", "Main XRay Hunter command");
+        this.plugin = plugin;
         add(new LookupCommand(plugin));
         add(new DetailCommand());
         add(new TeleportCommand());
+    }
+
+    @Override
+    public boolean onCommand(CommandSender commandSender, Command command, String alias, String[] args) {
+        if (plugin.getAPI() == null) {
+            commandSender.sendMessage("No valid CoreProtect plugin was found!");
+            return true;
+        }
+        return super.onCommand(commandSender, command, alias, args);
     }
 }

@@ -3,7 +3,7 @@ main: dk.lockfuglsang.xrayhunter.XRayHunter
 version: ${project.version}
 description: XRay Hunter for CoreProtect v${project.version}-${buildNumber}-${travis.buildNumber}
 author: R4zorax
-depend: [CoreProtect]
+softdepend: [CoreProtect]
 commands:
     xrayhunt:
         description: Hunt XRayers

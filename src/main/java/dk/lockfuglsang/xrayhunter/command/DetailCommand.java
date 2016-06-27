@@ -1,8 +1,8 @@
 package dk.lockfuglsang.xrayhunter.command;
 
+import dk.lockfuglsang.minecraft.command.AbstractCommand;
 import dk.lockfuglsang.util.LocationUtil;
 import dk.lockfuglsang.util.TimeUtil;
-import dk.lockfuglsang.xrayhunter.command.common.AbstractCommand;
 import dk.lockfuglsang.xrayhunter.model.HuntSession;
 import dk.lockfuglsang.xrayhunter.model.OreVein;
 import dk.lockfuglsang.xrayhunter.model.PlayerStats;
@@ -14,7 +14,7 @@ import org.bukkit.command.CommandSender;
 import java.util.List;
 import java.util.Map;
 
-import static dk.lockfuglsang.xrayhunter.i18n.I18nUtil.tr;
+import static dk.lockfuglsang.minecraft.po.I18nUtil.tr;
 
 /**
  * Shows details about ore-veins found by a user

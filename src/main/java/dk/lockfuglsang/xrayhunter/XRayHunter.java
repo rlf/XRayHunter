@@ -24,9 +24,7 @@ public class XRayHunter extends JavaPlugin {
         api = null;
         CoreProtectAPI coreProtectAPI = getCoreProtect();
         if (coreProtectAPI == null) {
-            log.info("No valid CoreProtect plugin was found! - Disabling");
-            getPluginLoader().disablePlugin(this);
-            return;
+            log.info("No valid CoreProtect plugin was found!");
         }
         try {
             org.mcstats.Metrics metrics = new Metrics(this);
@@ -52,6 +50,12 @@ public class XRayHunter extends JavaPlugin {
     }
 
     public CoreProtectAPI getAPI() {
+        if (api == null) {
+            CoreProtectAPI coreProtectAPI = getCoreProtect();
+            if (coreProtectAPI != null) {
+                api = coreProtectAPI;
+            }
+        }
         return api;
     }
 }

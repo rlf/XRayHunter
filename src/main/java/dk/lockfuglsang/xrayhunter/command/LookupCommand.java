@@ -1,10 +1,10 @@
 package dk.lockfuglsang.xrayhunter.command;
 
+import dk.lockfuglsang.minecraft.command.AbstractCommand;
 import dk.lockfuglsang.util.TimeUtil;
+import dk.lockfuglsang.xrayhunter.XRayHunter;
 import dk.lockfuglsang.xrayhunter.coreprotect.Callback;
 import dk.lockfuglsang.xrayhunter.coreprotect.CoreProtectHandler;
-import dk.lockfuglsang.xrayhunter.XRayHunter;
-import dk.lockfuglsang.xrayhunter.command.common.AbstractCommand;
 import dk.lockfuglsang.xrayhunter.model.HuntSession;
 import dk.lockfuglsang.xrayhunter.model.PlayerStats;
 import dk.lockfuglsang.xrayhunter.model.PlayerStatsComparator;
@@ -13,7 +13,6 @@ import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.math.BigInteger;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,7 +1,7 @@
 package dk.lockfuglsang.xrayhunter.command;
 
+import dk.lockfuglsang.minecraft.command.AbstractCommand;
 import dk.lockfuglsang.util.LocationUtil;
-import dk.lockfuglsang.xrayhunter.command.common.AbstractCommand;
 import dk.lockfuglsang.xrayhunter.model.HuntSession;
 import dk.lockfuglsang.xrayhunter.model.OreVein;
 import org.bukkit.Location;
@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 import java.util.Map;
 
-import static dk.lockfuglsang.xrayhunter.i18n.I18nUtil.tr;
+import static dk.lockfuglsang.minecraft.po.I18nUtil.tr;
 
 /**
  * Supports teleporting to a vein location
