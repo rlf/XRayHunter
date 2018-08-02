@@ -86,9 +86,9 @@ public enum LocationUtil {;
         int dx = cx < 0 ? ((cx % 16) + 16) % 16 : cx % 16;
         int dy = cy;
         int dz = cz < 0 ? ((cz % 16) + 16) % 16 : cz % 16;
-        Material ground = Material.getMaterial(chunk.getBlockTypeId(dx, dy-1, dz));
-        Material air1 = Material.getMaterial(chunk.getBlockTypeId(dx, dy, dz));
-        Material air2 = Material.getMaterial(chunk.getBlockTypeId(dx, dy+1, dz));
+        Material ground = chunk.getBlockType(dx, dy-1, dz);
+        Material air1 = chunk.getBlockType(dx, dy, dz);
+        Material air2 = chunk.getBlockType(dx, dy+1, dz);
         return ground.isSolid() && isBreathable(air1) && isBreathable(air2);
     }
 }

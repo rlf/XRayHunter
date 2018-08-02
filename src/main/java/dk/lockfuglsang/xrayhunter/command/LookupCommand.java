@@ -45,7 +45,7 @@ class LookupCommand extends AbstractCommand {
         return false;
     }
 
-    private void updateMap(Map<Integer, Integer> blockCount, Integer blockId) {
+    private void updateMap(Map<Material, Integer> blockCount, Material blockId) {
         if (!blockCount.containsKey(blockId)) {
             blockCount.put(blockId, 0);
         }
@@ -70,14 +70,14 @@ class LookupCommand extends AbstractCommand {
                 }
                 return;
             }
-            Map<Integer, Integer> blockCount = new HashMap<>();
-            Map<String, Map<Integer, Integer>> playerCount = new HashMap<>();
+            Map<Material, Integer> blockCount = new HashMap<>();
+            Map<String, Map<Material, Integer>> playerCount = new HashMap<>();
             Map<String, List<CoreProtectAPI.ParseResult>> dataMap = new HashMap<>();
             Collections.reverse(result); // Oldest first (so placements are detected before breaks)
             Map<String, Boolean> userPlacedBlocks = new HashMap<>();
             for (String[] line : result) {
                 CoreProtectAPI.ParseResult parse = plugin.getAPI().parseResult(line);
-                Integer blockId = parse.getTypeId();
+                Material blockType = parse.getType();
                 int actionId = parse.getActionId();
                 String blockKey = getBlockKey(parse);
                 if (actionId == CoreProtectHandler.ACTION_PLACE) {
@@ -85,13 +85,13 @@ class LookupCommand extends AbstractCommand {
                     continue; // skip the rest for placements
                 }
                 if (actionId == CoreProtectHandler.ACTION_BREAK && !userPlacedBlocks.containsKey(blockKey)) {
-                    updateMap(blockCount, blockId);
+                    updateMap(blockCount, blockType);
                     if (!playerCount.containsKey(parse.getPlayer())) {
-                        playerCount.put(parse.getPlayer(), new HashMap<Integer, Integer>());
+                        playerCount.put(parse.getPlayer(), new HashMap<>());
                     }
-                    updateMap(playerCount.get(parse.getPlayer()), blockId);
+                    updateMap(playerCount.get(parse.getPlayer()), blockType);
                     if (!dataMap.containsKey(parse.getPlayer())) {
-                        dataMap.put(parse.getPlayer(), new ArrayList<CoreProtectAPI.ParseResult>());
+                        dataMap.put(parse.getPlayer(), new ArrayList<>());
                     }
                     dataMap.get(parse.getPlayer()).add(parse);
                 }

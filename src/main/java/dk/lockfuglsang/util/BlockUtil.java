@@ -10,7 +10,7 @@ import java.util.Collection;
  * Utility for common block related functions.
  */
 public enum BlockUtil {;
-    private static final Collection<Material> FLUIDS = Arrays.asList(Material.STATIONARY_WATER, Material.WATER, Material.LAVA, Material.STATIONARY_LAVA);
+    private static final Collection<Material> FLUIDS = Arrays.asList(Material.WATER, Material.LAVA);
 
     public static boolean isBreathable(Material block) {
         return !block.isSolid() && !isFluid(block);

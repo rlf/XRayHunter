@@ -19,7 +19,7 @@ public class OreVein {
     private List<CoreProtectAPI.ParseResult> find = new ArrayList<>();
 
     public OreVein(CoreProtectAPI.ParseResult ore) {
-        type = Material.getMaterial(ore.getTypeId());
+        type = ore.getType();
         add(ore);
     }
 

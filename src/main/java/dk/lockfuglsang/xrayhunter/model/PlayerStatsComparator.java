@@ -14,7 +14,7 @@ import java.util.Map;
 public class PlayerStatsComparator implements Comparator<PlayerStats> {
     public static final List<Material> MATS = Arrays.asList(
             Material.DIAMOND_ORE,
-            Material.MOB_SPAWNER,
+            Material.SPAWNER,
             Material.EMERALD_ORE,
             Material.GOLD_ORE,
             Material.IRON_ORE,
@@ -23,7 +23,7 @@ public class PlayerStatsComparator implements Comparator<PlayerStats> {
     public static final Map<Integer, String> MAT_COLORS = new HashMap<>();
     static {
         MAT_COLORS.put(Material.DIAMOND_ORE.getId(), "§b");
-        MAT_COLORS.put(Material.MOB_SPAWNER.getId(), "§0");
+        MAT_COLORS.put(Material.SPAWNER.getId(), "§0");
         MAT_COLORS.put(Material.EMERALD_ORE.getId(), "§a");
         MAT_COLORS.put(Material.GOLD_ORE.getId(), "§e");
         MAT_COLORS.put(Material.IRON_ORE.getId(), "§f");

@@ -24,7 +24,7 @@ public enum VeinLocator {;
         List<OreVein> veins = new ArrayList<>();
         Map<Material, OreVein> current = new HashMap<>();
         for (CoreProtectAPI.ParseResult ore : data) {
-            Material mat = Material.getMaterial(ore.getTypeId());
+            Material mat = ore.getType();
             if (IGNORE.contains(mat)) {
                 continue;
             }

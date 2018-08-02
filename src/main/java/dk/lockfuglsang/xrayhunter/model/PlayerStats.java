@@ -11,12 +11,12 @@ import java.util.Map;
 public class PlayerStats {
     private final String player;
     private final float total;
-    private final Map<Integer, Integer> blockCount = new HashMap<>();
+    private final Map<Material, Integer> blockCount = new HashMap<>();
 
-    public PlayerStats(String player, Map<Integer, Integer> map) {
+    public PlayerStats(String player, Map<Material, Integer> map) {
         this.player = player;
         int sum = 0;
-        for (Map.Entry<Integer,Integer> entry : map.entrySet()) {
+        for (Map.Entry<Material,Integer> entry : map.entrySet()) {
             int val = entry.getValue();
             blockCount.put(entry.getKey(), val);
             sum += val;
@@ -29,8 +29,8 @@ public class PlayerStats {
     }
 
     public int getCount(Material mat) {
-        if (blockCount.containsKey(mat.getId())) {
-            return blockCount.get(mat.getId());
+        if (blockCount.containsKey(mat)) {
+            return blockCount.get(mat);
         }
         return 0;
     }

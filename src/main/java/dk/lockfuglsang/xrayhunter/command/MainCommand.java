@@ -1,11 +1,11 @@
 package dk.lockfuglsang.xrayhunter.command;
 
-import dk.lockfuglsang.minecraft.command.AbstractCommandExecutor;
+import dk.lockfuglsang.minecraft.command.BaseCommandExecutor;
 import dk.lockfuglsang.xrayhunter.XRayHunter;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-public class MainCommand extends AbstractCommandExecutor {
+public class MainCommand extends BaseCommandExecutor {
     private final XRayHunter plugin;
 
     public MainCommand(XRayHunter plugin) {
