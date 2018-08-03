@@ -1,5 +1,6 @@
 package dk.lockfuglsang.xrayhunter.coreprotect;
 
+import net.coreprotect.CoreProtect;
 import net.coreprotect.database.Database;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -22,10 +23,12 @@ import java.util.logging.Logger;
 public class CoreProtectHandler {
     public static final int ACTION_BREAK = 0;
     public static final int ACTION_PLACE = 1;
-
     private static final Logger log = Logger.getLogger(CoreProtectHandler.class.getName());
     private static final List<CoreProtectAdaptor> adaptors = Arrays.<CoreProtectAdaptor>asList(
-            new CoreProtectAdaptor_2_12_0(), new CoreProtectAdaptor_2_10_0(), new CoreProtectAdaptor_2_0_8()
+            new CoreProtectAdaptor_2_15_0(),
+            new CoreProtectAdaptor_2_12_0(),
+            new CoreProtectAdaptor_2_10_0(),
+            new CoreProtectAdaptor_2_0_8()
     );
 
     public static void performLookup(final Plugin plugin, final CommandSender sender, final int stime, final List<Material> restrictBlocks, final List<Integer> excludeBlocks, final Callback callback) {

@@ -4,6 +4,7 @@ version: ${project.version}
 description: XRay Hunter for CoreProtect v${project.version}-${buildNumber}-${travis.buildNumber}
 author: R4zorax
 softdepend: [CoreProtect]
+api-version: 1.13
 commands:
     xrayhunt:
         description: Hunt XRayers

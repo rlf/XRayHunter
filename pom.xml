@@ -121,7 +121,7 @@
                     <minimizeJar>true</minimizeJar>
                     <artifactSet>
                         <includes>
-                            <include>org.bstats.*:*</include>
+                            <include>org.bstats:*</include>
                             <include>com.googlecode.gettext-commons:*</include>
                             <include>dk.lockfuglsang.minecraft:*</include>
                         </includes>

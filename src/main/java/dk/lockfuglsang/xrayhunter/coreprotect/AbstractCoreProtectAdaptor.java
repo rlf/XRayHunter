@@ -15,7 +15,7 @@ public class AbstractCoreProtectAdaptor {
         List<String> result = new ArrayList<>(matList != null ? matList.size() : 0);
         if (matList != null) {
             for (Material i : matList) {
-                result.add("" + i.getId());
+                result.add("" + i.getKey().getKey().toLowerCase());
             }
         }
         return result;

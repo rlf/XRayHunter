@@ -20,18 +20,18 @@ public class PlayerStatsComparator implements Comparator<PlayerStats> {
             Material.IRON_ORE,
             Material.STONE
     );
-    public static final Map<Integer, String> MAT_COLORS = new HashMap<>();
+    public static final Map<Material, String> MAT_COLORS = new HashMap<>();
     static {
-        MAT_COLORS.put(Material.DIAMOND_ORE.getId(), "§b");
-        MAT_COLORS.put(Material.SPAWNER.getId(), "§0");
-        MAT_COLORS.put(Material.EMERALD_ORE.getId(), "§a");
-        MAT_COLORS.put(Material.GOLD_ORE.getId(), "§e");
-        MAT_COLORS.put(Material.IRON_ORE.getId(), "§f");
-        MAT_COLORS.put(Material.STONE.getId(), "§7");
+        MAT_COLORS.put(Material.DIAMOND_ORE, "§b");
+        MAT_COLORS.put(Material.SPAWNER, "§0");
+        MAT_COLORS.put(Material.EMERALD_ORE, "§a");
+        MAT_COLORS.put(Material.GOLD_ORE, "§e");
+        MAT_COLORS.put(Material.IRON_ORE, "§f");
+        MAT_COLORS.put(Material.STONE, "§7");
     }
 
     public static String getColor(Material mat) {
-        String color = MAT_COLORS.get(mat.getId());
+        String color = MAT_COLORS.get(mat);
         return color != null ? color : "";
     }
 

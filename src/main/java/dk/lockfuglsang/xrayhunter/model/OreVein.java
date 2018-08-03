@@ -51,7 +51,7 @@ public class OreVein {
         if (worldName != null && worldName.equalsIgnoreCase(ore.worldName())) {
             Location loc = new Location(Bukkit.getWorld(ore.worldName()), ore.getX(), ore.getY(), ore.getZ());
             if (loc.distance(getLocation()) <= MAX_DISTANCE) {
-                if (ore.getTypeId() == type.getId()) {
+                if (ore.getType() == type) {
                     return true;
                 }
             }
